@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="client.controller.LoginController"
+      styleClass="root">
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <Label text="Mini Zalo - Login" styleClass="title-label"/>
+    
+    <VBox spacing="15" maxWidth="300">
+        <TextField fx:id="usernameField" 
+                   promptText="Username"
+                   styleClass="text-field"/>
+                   
+        <PasswordField fx:id="passwordField" 
+                      promptText="Password"
+                      styleClass="text-field"/>
+    </VBox>
+                  
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Login" 
+                onAction="#handleLogin"
+                styleClass="button-primary"/>
+        <Button text="Register" 
+                onAction="#handleRegisterNavigation"
+                styleClass="button-secondary"/>
+    </HBox>
+</VBox>

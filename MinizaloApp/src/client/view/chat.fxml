@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane styleClass="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" 
+           fx:controller="client.controller.ChatController">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Settings">
+                    <MenuItem text="Username: " fx:id="usernameMenuItem" disable="true"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Log Out" onAction="#handleLogout"/>
+                    <MenuItem text="Exit" onAction="#handleExit"/>
+                </Menu>
+            </MenuBar>
+            <StackPane fx:id="rootContainer" maxHeight="100" alignment="TOP_RIGHT">
+                <!-- Notification area -->
+            </StackPane>
+        </VBox>
+    </top>
+    
+    <left>
+        <VBox spacing="15" styleClass="sidebar">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <TextField fx:id="searchField" 
+                      promptText="Search users..."
+                      styleClass="search-field"/>
+                      
+            <Label text="Online Users" styleClass="section-label"/>
+            
+            <ListView fx:id="userListView" 
+                     VBox.vgrow="ALWAYS"
+                     styleClass="user-list"/>
+        </VBox>
+    </left>
+    
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <Label fx:id="selectedUserLabel" 
+                   styleClass="chat-header"/>
+                   
+            <TextArea fx:id="chatArea" 
+                      VBox.vgrow="ALWAYS" 
+                      styleClass="chat-area"
+                      editable="false"/>
+                      
+            <HBox spacing="10" styleClass="message-input">
+                <TextField fx:id="messageField" 
+                          HBox.hgrow="ALWAYS"
+                          promptText="Type a message..."
+                          styleClass="text-field"/>
+                          
+                <Button text="Send" 
+                        onAction="#handleSendMessage"
+                        styleClass="button-primary"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
